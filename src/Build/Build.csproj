@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <DevelopmentDependency>true</DevelopmentDependency>
+
+    <PackageId>$(PackageNamespace)</PackageId>
+    <Title>$(PackageId)</Title>
+    <Description></Description>
+    <Authors></Authors>
+    <Copyright></Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl></RepositoryUrl>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <Version>0.0.1</Version>
+
+    <HomeDir>$([System.Environment]::GetFolderPath(SpecialFolder.UserProfile))</HomeDir>
+
+    <GeneratorPath>..\Roslyn\Generator</GeneratorPath>
+    <AnalyzerPath>..\Roslyn\Analyzer</AnalyzerPath>
+    <CodeFixesPath>..\Roslyn\CodeFixes</CodeFixesPath>
+    <CommonPath>..\Roslyn\Common</CommonPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <PackageOutputPath>$(HomeDir)\Nuget</PackageOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)..\..\readme.md" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+  <Target Name="BuildDependencies" BeforeTargets="BeforeBuild">
+    <MSBuild Projects="$(GeneratorPath)\Generator.csproj"
+             Targets="Build"
+             Properties="Configuration=$(Configuration)"/>
+    <MSBuild Projects="$(AnalyzerPath)\Analyzer.csproj"
+             Targets="Build"
+             Properties="Configuration=$(Configuration)"/>
+    <MSBuild Projects="$(CodeFixesPath)\CodeFixes.csproj"
+             Targets="Build"
+             Properties="Configuration=$(Configuration)"/>
+    <MSBuild Projects="$(CommonPath)\Common.csproj"
+             Targets="Build"
+             Properties="Configuration=$(Configuration)"/>
+  </Target>
+
+  <Target Name="RebuildDependencies" BeforeTargets="BeforeRebuild">
+    <MSBuild Projects="$(GeneratorPath)\Generator.csproj"
+             Targets="Rebuild"
+             Properties="Configuration=$(Configuration)"/>
+    <MSBuild Projects="$(AnalyzerPath)\Analyzer.csproj"
+             Targets="Rebuild"
+             Properties="Configuration=$(Configuration)"/>
+    <MSBuild Projects="$(CodeFixesPath)\CodeFixes.csproj"
+             Targets="Rebuild"
+             Properties="Configuration=$(Configuration)"/>
+    <MSBuild Projects="$(CommonPath)\Common.csproj"
+             Targets="Rebuild"
+             Properties="Configuration=$(Configuration)"/>
+  </Target>
+
+  <ItemGroup>
+    <None Include="$(GeneratorPath)\bin\$(Configuration)\netstandard2.0\$(PackageNamespace).Generator.dll"
+          PackagePath="analyzers\dotnet\cs\"
+          Pack="true"/>
+    <None Include="$(AnalyzerPath)\bin\$(Configuration)\netstandard2.0\$(PackageNamespace).Analyzer.dll"
+          PackagePath="analyzers\dotnet\cs\"
+          Pack="true"/>
+    <None Include="$(CodeFixesPath)\bin\$(Configuration)\netstandard2.0\$(PackageNamespace).CodeFixes.dll"
+          PackagePath="analyzers\dotnet\cs\"
+          Pack="true"/>
+    <None Include="$(CommonPath)\bin\$(Configuration)\netstandard2.0\$(PackageNamespace).Common.dll"
+          PackagePath="analyzers\dotnet\cs\"
+          Pack="true"/>
+  </ItemGroup>
+</Project>

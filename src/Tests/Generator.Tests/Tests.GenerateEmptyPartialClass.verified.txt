@@ -1,0 +1,7 @@
+﻿#nullable enable
+
+namespace MyTestNamespace.SubNamespace;
+
+public partial class MyTestClass
+{
+}

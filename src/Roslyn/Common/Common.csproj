@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <AssemblyName>$(PackageNamespace).Common</AssemblyName>
+    <RootNamespace>$(AssemblyName)</RootNamespace>
+
+    <StaticContentPath>..\..\StaticContent</StaticContentPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="AnalyzerReleases.Shipped.md" Visible="false"/>
+    <AdditionalFiles Include="AnalyzerReleases.Unshipped.md" Visible="false"/>
+    
+    <AdditionalFiles Include="$(StaticContentPath)\EmbeddedAttribute.cs" Visible="false"/>
+    <AdditionalFiles Include="$(StaticContentPath)\Files\*.cs" Visible="false"/>
+    <Compile Include="$(StaticContentPath)\Files\*.cs" Visible="false"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

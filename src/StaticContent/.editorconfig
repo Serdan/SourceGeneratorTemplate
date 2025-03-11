@@ -1,0 +1,9 @@
+﻿root = true
+
+[*]
+indent_size = 4
+
+resharper_unused_type_global_highlighting = none
+resharper_check_namespace_highlighting = none
+resharper_unused_member_global_highlighting = none
+resharper_unused_type_parameter_highlighting = none

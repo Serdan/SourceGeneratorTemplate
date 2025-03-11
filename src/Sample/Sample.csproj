@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <AssemblyName>$(PackageName).Sample</AssemblyName>
+    <RootNamespace>$(AssemblyName)</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Roslyn\Generator\Generator.csproj" OutputItemType="Analyzer" />
+    <ProjectReference Include="..\Roslyn\Analyzer\Analyzer.csproj" OutputItemType="Analyzer" />
+    <ProjectReference Include="..\Roslyn\CodeFixes\CodeFixes.csproj" OutputItemType="Analyzer" />
+    <ProjectReference Include="..\Roslyn\Common\Common.csproj" OutputItemType="Analyzer" />
+  </ItemGroup>
+
+</Project>

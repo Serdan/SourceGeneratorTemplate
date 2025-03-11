@@ -1,0 +1,5 @@
+﻿<Project>
+    <PropertyGroup>
+        <PackageNamespace>SourceGeneratorNamespace</PackageNamespace>
+    </PropertyGroup>
+</Project>

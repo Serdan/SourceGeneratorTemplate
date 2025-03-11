@@ -1,0 +1,12 @@
+﻿#nullable enable
+
+namespace MyTestNamespace.SubNamespace;
+
+public partial class MyTestClass
+{
+    public static readonly string MyFile =
+"""
+TODO: Conquer the world
+""";
+
+}
