@@ -31,6 +31,9 @@
   </ItemGroup>
 
   <Target Name="BuildDependencies" BeforeTargets="BeforeBuild">
+    <MSBuild Projects="$(CommonPath)\Common.csproj"
+             Targets="Build"
+             Properties="Configuration=$(Configuration)"/>
     <MSBuild Projects="$(GeneratorPath)\Generator.csproj"
              Targets="Build"
              Properties="Configuration=$(Configuration)"/>
@@ -38,14 +41,14 @@
              Targets="Build"
              Properties="Configuration=$(Configuration)"/>
     <MSBuild Projects="$(CodeFixesPath)\CodeFixes.csproj"
-             Targets="Build"
-             Properties="Configuration=$(Configuration)"/>
-    <MSBuild Projects="$(CommonPath)\Common.csproj"
              Targets="Build"
              Properties="Configuration=$(Configuration)"/>
   </Target>
 
   <Target Name="RebuildDependencies" BeforeTargets="BeforeRebuild">
+    <MSBuild Projects="$(CommonPath)\Common.csproj"
+             Targets="Rebuild"
+             Properties="Configuration=$(Configuration)"/>
     <MSBuild Projects="$(GeneratorPath)\Generator.csproj"
              Targets="Rebuild"
              Properties="Configuration=$(Configuration)"/>
@@ -53,9 +56,6 @@
              Targets="Rebuild"
              Properties="Configuration=$(Configuration)"/>
     <MSBuild Projects="$(CodeFixesPath)\CodeFixes.csproj"
-             Targets="Rebuild"
-             Properties="Configuration=$(Configuration)"/>
-    <MSBuild Projects="$(CommonPath)\Common.csproj"
              Targets="Rebuild"
              Properties="Configuration=$(Configuration)"/>
   </Target>

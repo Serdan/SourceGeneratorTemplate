@@ -1,5 +1,11 @@
 ﻿<Project>
     <PropertyGroup>
         <PackageNamespace>SourceGeneratorNamespace</PackageNamespace>
+
+        <GeneratorPath>$(MSBuildThisFileDirectory)Roslyn\Generator</GeneratorPath>
+        <AnalyzerPath>$(MSBuildThisFileDirectory)Roslyn\Analyzer</AnalyzerPath>
+        <CodeFixesPath>$(MSBuildThisFileDirectory)Roslyn\CodeFixes</CodeFixesPath>
+        <CommonPath>$(MSBuildThisFileDirectory)Roslyn\Common</CommonPath>
+        <StaticContentPath>$(MSBuildThisFileDirectory)StaticContent</StaticContentPath>
     </PropertyGroup>
 </Project>

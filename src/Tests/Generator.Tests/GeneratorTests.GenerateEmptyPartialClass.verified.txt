@@ -1,7 +1,11 @@
 ﻿#nullable enable
 
-namespace MyTestNamespace.SubNamespace;
+using System;
+using SourceGeneratorNamespace;
 
-public partial class MyTestClass
+namespace MyTestNamespace.SubNamespace
 {
+    public partial class MyTestClass
+    {
+    }
 }

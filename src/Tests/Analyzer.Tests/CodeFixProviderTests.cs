@@ -6,7 +6,7 @@ using SourceGeneratorNamespace.Common;
 using Tests.Common;
 using Xunit;
 
-namespace LoadAdditionalFiles.Analyzer.Tests;
+namespace Analyzer.Tests;
 
 using Verifier = CSharpCodeFixVerifier<GeneratorAnalyzer, CodeFixProvider, DefaultVerifier>;
 
@@ -19,7 +19,7 @@ public class CodeFixProviderTests
         var fixedSource = SR.GetPartialClassWithAttribute(true);
 
         var expected = Verifier.Diagnostic(DiagnosticDescriptors.MissingPartialKeyword)
-                               .WithSpan(7, 18, 7, 29);
+                               .WithSpan(19, 18, 19, 29);
 
         await Verifier.VerifyCodeFixAsync(original, expected, fixedSource);
     }

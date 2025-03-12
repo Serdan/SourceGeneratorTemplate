@@ -1,8 +1,10 @@
 ﻿using System;
+using Microsoft.CodeAnalysis;
+using static System.AttributeTargets;
 
-namespace Microsoft.CodeAnalysis
+namespace SourceGeneratorNamespace
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
+    [AttributeUsage(Class | Struct | Interface)]
     [Embedded]
-    public class MarkerAttribute : Attribute;
+    internal class MarkerAttribute : Attribute;
 }

@@ -10,10 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Roslyn\Generator\Generator.csproj" OutputItemType="Analyzer" />
-    <ProjectReference Include="..\Roslyn\Analyzer\Analyzer.csproj" OutputItemType="Analyzer" />
-    <ProjectReference Include="..\Roslyn\CodeFixes\CodeFixes.csproj" OutputItemType="Analyzer" />
-    <ProjectReference Include="..\Roslyn\Common\Common.csproj" OutputItemType="Analyzer" />
+    <ProjectReference Include="$(GeneratorPath)\Generator.csproj" OutputItemType="Analyzer" />
+    <ProjectReference Include="$(AnalyzerPath)\Analyzer.csproj" OutputItemType="Analyzer" />
+    <ProjectReference Include="$(CodeFixesPath)\CodeFixes.csproj" OutputItemType="Analyzer" />
+    <ProjectReference Include="$(CommonPath)\Common.csproj" OutputItemType="Analyzer" />
   </ItemGroup>
 
 </Project>

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Roslyn\Generator\Generator.csproj" />
+    <ProjectReference Include="$(GeneratorPath)\Generator.csproj"/>
     <ProjectReference Include="..\Tests.Common\Tests.Common.csproj" />
   </ItemGroup>
 

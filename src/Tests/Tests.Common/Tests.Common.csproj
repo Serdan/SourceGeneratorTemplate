@@ -16,11 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Roslyn\Generator\Generator.csproj"/>
+    <ProjectReference Include="$(CommonPath)\Common.csproj"/>
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="..\..\StaticContent\Files\*.cs" Visible="false"/>
+    <AdditionalFiles Include="$(StaticContentPath)\Files\*.cs" Visible="false"/>
   </ItemGroup>
 
 </Project>

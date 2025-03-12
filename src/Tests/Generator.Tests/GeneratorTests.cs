@@ -2,7 +2,7 @@
 using SourceGeneratorNamespace.Generator;
 using Tests.Common;
 
-namespace LoadAdditionalFiles.Generator.Tests;
+namespace Generator.Tests;
 
 public class GeneratorTests
 {

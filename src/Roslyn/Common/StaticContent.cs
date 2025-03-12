@@ -1,5 +1,4 @@
 ﻿using Kehlet.Generators.LoadAdditionalFiles;
-using Microsoft.CodeAnalysis;
 
 namespace SourceGeneratorNamespace.Common;
 
@@ -7,4 +6,6 @@ namespace SourceGeneratorNamespace.Common;
 public static partial class StaticContent
 {
     public static string MarkerAttributeName => typeof(MarkerAttribute).FullName!;
+
+    public static string MarkerAttributeNamespace => typeof(MarkerAttribute).Namespace!;
 }

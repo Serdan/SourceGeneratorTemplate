@@ -16,7 +16,9 @@ public partial class SourceGeneratorTypeName : IIncrementalGenerator
             ctx.AddSource("Microsoft.CodeAnalysis.EmbeddedAttribute.g.cs", SourceText.From(EmbeddedAttributeSource, Encoding.UTF8))
         );
 
-        var typeValues = context.GetTargetProvider(typeof(MarkerAttribute).FullName!, SyntaxTarget.Type, Parser.Parse).Choose();
+        context.RegisterType<MarkerAttribute>(MarkerAttributeSource);
+
+        var typeValues = context.CreateTargetProvider(MarkerAttributeName, SyntaxTarget.Type, Parser.Parse).Choose();
 
         context.RegisterSourceOutput(typeValues, GenerateCode);
     }

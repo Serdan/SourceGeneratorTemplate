@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Kehlet.SourceGenerator.Prelude"
-                      Version="1.1.2"
+                      Version="1.1.3"
                       PrivateAssets="all"
                       IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
     <PackageReference Include="Meziantou.Polyfill"
@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj"/>
+    <ProjectReference Include="$(CommonPath)\Common.csproj"/>
   </ItemGroup>
 
 </Project>
