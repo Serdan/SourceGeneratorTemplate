@@ -1,19 +1,18 @@
 ﻿using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using SourceGeneratorNamespace.Common;
 
 namespace SourceGeneratorNamespace.Analyzer;
 
-using static Microsoft.CodeAnalysis.CSharp.SyntaxKind;
+using SK = SyntaxKind;
 using static DiagnosticDescriptors;
 
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
-public class LoadAdditionalFilesAnalyzer : DiagnosticAnalyzer
+public class GeneratorAnalyzer : DiagnosticAnalyzer
 {
-    private const string AttributeName = "Kehlet.Generators.LoadAdditionalFiles.LoadAdditionalFilesAttribute";
-
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } =
     [
         MissingPartialKeyword
@@ -25,11 +24,11 @@ public class LoadAdditionalFilesAnalyzer : DiagnosticAnalyzer
         context.EnableConcurrentExecution();
         context.RegisterSyntaxNodeAction(
             FindStaticContentContainer,
-            ClassDeclaration,
-            StructDeclaration,
-            InterfaceDeclaration,
-            RecordDeclaration,
-            RecordStructDeclaration
+            SK.ClassDeclaration,
+            SK.StructDeclaration,
+            SK.InterfaceDeclaration,
+            SK.RecordDeclaration,
+            SK.RecordStructDeclaration
         );
     }
 
@@ -37,7 +36,7 @@ public class LoadAdditionalFilesAnalyzer : DiagnosticAnalyzer
     {
         var typeDeclarationNode = (TypeDeclarationSyntax)context.Node;
 
-        var attributes = typeDeclarationNode.GetAttributesWithName(context.SemanticModel, AttributeName);
+        var attributes = typeDeclarationNode.GetAttributesWithName(context.SemanticModel, StaticContent.MarkerAttributeName);
         if (attributes.IsEmpty)
         {
             return;
@@ -48,7 +47,7 @@ public class LoadAdditionalFilesAnalyzer : DiagnosticAnalyzer
 
     private static void FindMissingPartial(SyntaxNodeAnalysisContext context, TypeDeclarationSyntax typeDeclarationNode)
     {
-        var hasPartial = typeDeclarationNode.Modifiers.Any(PartialKeyword);
+        var hasPartial = typeDeclarationNode.Modifiers.Any(SK.PartialKeyword);
         if (hasPartial)
         {
             return;

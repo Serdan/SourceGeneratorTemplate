@@ -1,15 +1,16 @@
+using Microsoft.CodeAnalysis.CSharp.Testing;
+using Microsoft.CodeAnalysis.Testing;
+using SourceGeneratorNamespace.Analyzer;
+using SourceGeneratorNamespace.CodeFixes;
 using SourceGeneratorNamespace.Common;
 using Tests.Common;
 using Xunit;
-using Verifier = Microsoft.CodeAnalysis.CSharp.Testing.CSharpCodeFixVerifier<
-    SourceGeneratorNamespace.Analyzer.LoadAdditionalFilesAnalyzer,
-    SourceGeneratorNamespace.CodeFixes.SampleCodeFixProvider,
-    Microsoft.CodeAnalysis.Testing.DefaultVerifier
->;
 
 namespace LoadAdditionalFiles.Analyzer.Tests;
 
-public class SampleCodeFixProviderTests
+using Verifier = CSharpCodeFixVerifier<GeneratorAnalyzer, CodeFixProvider, DefaultVerifier>;
+
+public class CodeFixProviderTests
 {
     [Fact]
     public async Task FixMissingPartialKeywordDiagnostic()

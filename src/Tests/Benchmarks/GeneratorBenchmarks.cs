@@ -21,7 +21,7 @@ public class GeneratorBenchmarks
         var generator  = new SourceGeneratorTypeName();
         
         simpleComp = CompilationFactory.PartialClassWithAttribute();
-        driver = GeneratorDriverFactory.WithOneFile(generator);
+        driver = GeneratorDriverFactory.Default(generator);
     }
 
     [Benchmark]

@@ -1,14 +1,15 @@
+using Microsoft.CodeAnalysis.CSharp.Testing;
+using Microsoft.CodeAnalysis.Testing;
+using SourceGeneratorNamespace.Analyzer;
 using SourceGeneratorNamespace.Common;
 using Tests.Common;
 using Xunit;
-using Verifier = Microsoft.CodeAnalysis.CSharp.Testing.CSharpAnalyzerVerifier<
-    SourceGeneratorNamespace.Analyzer.LoadAdditionalFilesAnalyzer,
-    Microsoft.CodeAnalysis.Testing.DefaultVerifier
->;
 
 namespace LoadAdditionalFiles.Analyzer.Tests;
 
-public class LoadAdditionalFilesAnalyzerTests
+using Verifier = CSharpAnalyzerVerifier<GeneratorAnalyzer, DefaultVerifier>;
+
+public class GeneratorAnalyzerTests
 {
     [Fact]
     public async Task MissingPartialKeywordDiagnostic()

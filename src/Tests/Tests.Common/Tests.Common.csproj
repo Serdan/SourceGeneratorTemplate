@@ -1,24 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <IsPackable>false</IsPackable>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Kehlet.Generators.LoadAdditionalFiles"
-                        Version="1.1.3"
-                        PrivateAssets="all"
-                        IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
-      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.13.0" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Kehlet.Generators.LoadAdditionalFiles"
+                      Version="1.1.3"
+                      PrivateAssets="all"
+                      IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.13.0"/>
+  </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\..\Roslyn\Generator\Generator.csproj" />
-    </ItemGroup>
-  
+  <ItemGroup>
+    <ProjectReference Include="..\..\Roslyn\Generator\Generator.csproj"/>
+  </ItemGroup>
+
   <ItemGroup>
     <AdditionalFiles Include="..\..\StaticContent\Files\*.cs" Visible="false"/>
   </ItemGroup>

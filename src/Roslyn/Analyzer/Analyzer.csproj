@@ -17,8 +17,10 @@
                       Version="1.0.42"
                       PrivateAssets="all"
                       IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+  </ItemGroup>
 
-    <ProjectReference Include="..\Common\Common.csproj" />
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj"/>
   </ItemGroup>
 
 </Project>

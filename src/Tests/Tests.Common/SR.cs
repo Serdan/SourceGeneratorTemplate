@@ -1,50 +1,34 @@
 ﻿using Kehlet.Generators.LoadAdditionalFiles;
+using Microsoft.CodeAnalysis;
 
 namespace Tests.Common;
 
-[LoadAdditionalFiles(RegexFilter = @"\.cs$", MemberNameSuffix = "Source")]
+[LoadAdditionalFiles(RegexFilter = @"\.cs$", MemberNameSuffix = "Source", MemberKind = MemberKind.Property)]
 public static partial class SR
 {
     public static string GetClassWithAttribute(bool includeGeneratorTypes = false) =>
         $$"""
         using System;
-        using Kehlet.Generators.LoadAdditionalFiles;
+        using {{typeof(MarkerAttribute).Namespace}};
+        {{(includeGeneratorTypes ? MarkerAttributeSource : "")}}
 
         namespace MyTestNamespace.SubNamespace
         {
-            [LoadAdditionalFiles]
+            [MarkerAttribute]
             public class MyTestClass;
         }
-
-        {{(includeGeneratorTypes ? MarkerAttributeSource : "")}}
         """;
 
     public static string GetPartialClassWithAttribute(bool includeGeneratorTypes = false) =>
         $$"""
         using System;
-        using Kehlet.Generators.LoadAdditionalFiles;
-
-        namespace MyTestNamespace.SubNamespace
-        {
-            [LoadAdditionalFiles]
-            public partial class MyTestClass;
-        }
-
+        using {{typeof(MarkerAttribute).Namespace}};
         {{(includeGeneratorTypes ? MarkerAttributeSource : "")}}
-        """;
-        
-    
-    public static readonly string PartialClassWithAttribute =
-        $$"""
-        using System;
-        using Kehlet.Generators.LoadAdditionalFiles.StaticContent;
 
         namespace MyTestNamespace.SubNamespace
         {
-            [LoadAdditionalFiles]
+            [MarkerAttribute]
             public partial class MyTestClass;
         }
-
-        {{MarkerAttributeSource}}
         """;
 }

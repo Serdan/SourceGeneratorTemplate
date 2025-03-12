@@ -26,10 +26,6 @@
     <CommonPath>..\Roslyn\Common</CommonPath>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <PackageOutputPath>$(HomeDir)\Nuget</PackageOutputPath>
-  </PropertyGroup>
-
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)..\..\readme.md" Pack="true" PackagePath=""/>
   </ItemGroup>

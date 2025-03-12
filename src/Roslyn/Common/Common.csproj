@@ -13,9 +13,9 @@
     <AdditionalFiles Include="AnalyzerReleases.Shipped.md" Visible="false"/>
     <AdditionalFiles Include="AnalyzerReleases.Unshipped.md" Visible="false"/>
     
-    <AdditionalFiles Include="$(StaticContentPath)\EmbeddedAttribute.cs" Visible="false"/>
-    <AdditionalFiles Include="$(StaticContentPath)\Files\*.cs" Visible="false"/>
-    <Compile Include="$(StaticContentPath)\Files\*.cs" Visible="false"/>
+    <AdditionalFiles Include="$(StaticContentPath)\EmbeddedAttribute.cs" Visible="false"/> <!-- Required until Roslyn 4.14 -->
+    <AdditionalFiles Include="$(StaticContentPath)\Files\*.cs" Visible="false"/> <!-- Source code of generated types are statically loaded. -->
+    <Compile Include="$(StaticContentPath)\Files\*.cs" Visible="false"/> <!-- Allows us to get metadata for our generated types. -->
   </ItemGroup>
 
   <ItemGroup>
