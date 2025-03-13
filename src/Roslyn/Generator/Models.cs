@@ -1,6 +1,6 @@
 ﻿namespace SourceGeneratorNamespace.Generator;
 
-internal record StaticContentTypeData(
+internal record TargetTypeData(
     string TargetIdentifier,
     string FileName,
     ModuleDescription ModuleDescription

@@ -2,7 +2,7 @@
 
 public partial class SourceGeneratorTypeName
 {
-    internal class Emitter(StaticContentTypeData typeData) : SyntaxDescriptionEmitter
+    internal class Emitter(TargetTypeData typeData) : SyntaxDescriptionEmitter
     {
         public override Option<IEmitter> VisitNamedTypeBody(NamedTypeDescription description)
         {

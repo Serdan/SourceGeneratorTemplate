@@ -8,7 +8,7 @@ public partial class SourceGeneratorTypeName
 {
     internal static class Parser
     {
-        public static Option<StaticContentTypeData> Parse(GeneratorAttributeSyntaxContext context, CancellationToken token)
+        public static Option<TargetTypeData> Parse(GeneratorAttributeSyntaxContext context, CancellationToken token)
         {
             var targetNode = (TypeDeclarationSyntax)context.TargetNode;
 
@@ -25,7 +25,7 @@ public partial class SourceGeneratorTypeName
 
             var fileName = NamespaceVisitor.GetFileName(targetNode, moduleData.UnsafeValue);
 
-            return new StaticContentTypeData(
+            return new TargetTypeData(
                 targetNode.Identifier.ValueText,
                 fileName,
                 moduleData.UnsafeValue

@@ -23,7 +23,7 @@ public partial class SourceGeneratorTypeName : IIncrementalGenerator
         context.RegisterSourceOutput(typeValues, GenerateCode);
     }
 
-    internal static void GenerateCode(SourceProductionContext context, StaticContentTypeData data)
+    internal static void GenerateCode(SourceProductionContext context, TargetTypeData data)
     {
         var source = new Emitter(data).Visit(data.ModuleDescription).UnsafeValue.ToString();
         context.AddSourceUTF8(data.FileName, source);
