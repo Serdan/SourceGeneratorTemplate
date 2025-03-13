@@ -3,4 +3,7 @@ using SourceGeneratorNamespace;
 namespace Sample;
 
 [Marker]
-public partial class TargetType;
+public class TargetType;
+
+[Marker]
+public partial class TargetType2;
