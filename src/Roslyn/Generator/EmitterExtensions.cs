@@ -10,4 +10,9 @@ internal static class MyEmitterExtensions
                       .Line($"{quotes};")
                       .WithIndent(indent);
     }
+
+    public static IEmitter Comment(this IEmitter emitter, string content)
+    {
+        return emitter.Tabs().Append("// ").Line(content);
+    }
 }

@@ -26,8 +26,8 @@ public partial class SourceGeneratorTypeName
             var fileName = NamespaceVisitor.GetFileName(targetNode, moduleData.UnsafeValue);
 
             return new TargetTypeData(
-                targetNode.Identifier.ValueText,
                 fileName,
+                SomeData: "Include data in the model",
                 moduleData.UnsafeValue
             );
         }
@@ -52,7 +52,7 @@ public partial class SourceGeneratorTypeName
 
         public static string GetFileName(TypeDeclarationSyntax targetNode, ModuleDescription module)
         {
-            var @namespace = GetFullNamespace(module).Map(x => x + ".").DefaultValue("")!;
+            var @namespace = GetFullNamespace(module).Map(x => x + ".").DefaultValue("");
             var identifier = targetNode.Identifier.ValueText;
             var fileName = @namespace + identifier;
             if (targetNode.Arity > 0)

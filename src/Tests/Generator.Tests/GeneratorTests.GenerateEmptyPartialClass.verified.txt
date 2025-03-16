@@ -1,11 +1,13 @@
 ﻿#nullable enable
 
 using System;
+using Microsoft.CodeAnalysis;
 using SourceGeneratorNamespace;
 
 namespace MyTestNamespace.SubNamespace
 {
     public partial class MyTestClass
     {
+        // Include data in the model
     }
 }

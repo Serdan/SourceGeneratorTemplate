@@ -17,13 +17,6 @@
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <Version>0.0.1</Version>
-
-    <HomeDir>$([System.Environment]::GetFolderPath(SpecialFolder.UserProfile))</HomeDir>
-
-    <GeneratorPath>..\Roslyn\Generator</GeneratorPath>
-    <AnalyzerPath>..\Roslyn\Analyzer</AnalyzerPath>
-    <CodeFixesPath>..\Roslyn\CodeFixes</CodeFixesPath>
-    <CommonPath>..\Roslyn\Common</CommonPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -61,6 +54,9 @@
   </Target>
 
   <ItemGroup>
+    <None Include="$(CommonPath)\bin\$(Configuration)\netstandard2.0\$(PackageNamespace).Common.dll"
+          PackagePath="analyzers\dotnet\cs\"
+          Pack="true"/>
     <None Include="$(GeneratorPath)\bin\$(Configuration)\netstandard2.0\$(PackageNamespace).Generator.dll"
           PackagePath="analyzers\dotnet\cs\"
           Pack="true"/>
@@ -68,9 +64,6 @@
           PackagePath="analyzers\dotnet\cs\"
           Pack="true"/>
     <None Include="$(CodeFixesPath)\bin\$(Configuration)\netstandard2.0\$(PackageNamespace).CodeFixes.dll"
-          PackagePath="analyzers\dotnet\cs\"
-          Pack="true"/>
-    <None Include="$(CommonPath)\bin\$(Configuration)\netstandard2.0\$(PackageNamespace).Common.dll"
           PackagePath="analyzers\dotnet\cs\"
           Pack="true"/>
   </ItemGroup>
