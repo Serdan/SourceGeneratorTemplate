@@ -1,6 +1,4 @@
-using System.Text;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Text;
 using SourceGeneratorNamespace.Common;
 
 namespace SourceGeneratorNamespace.Generator;
@@ -13,10 +11,10 @@ public partial class SourceGeneratorTypeName : IIncrementalGenerator
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         context.RegisterPostInitializationOutput(ctx =>
-            ctx.AddSource("Microsoft.CodeAnalysis.EmbeddedAttribute.g.cs", SourceText.From(EmbeddedAttributeSource, Encoding.UTF8))
-        );
-
-        context.RegisterType<MarkerAttribute>(MarkerAttributeSource);
+        {
+            ctx.AddSource<EmbeddedAttribute>(EmbeddedAttributeSource);
+            ctx.AddSource<MarkerAttribute>(MarkerAttributeSource);
+        });
 
         var typeValues = context.CreateTargetProvider(MarkerAttributeName, SyntaxTarget.Type, Parser.Parse).Choose();
 
