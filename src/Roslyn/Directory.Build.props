@@ -12,13 +12,16 @@
     </ImportGroup>
 
     <ItemGroup>
+        <!-- The Roslyn API -->
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp"
                           Version="4.13.0"
                           PrivateAssets="all"/>
+        <!-- Microsoft analyzers for projects that use ⬆️ -->
         <PackageReference Include="Microsoft.CodeAnalysis.Analyzers"
                           Version="3.11.0"
                           PrivateAssets="all"
                           IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+        <!-- Convenient way to handle static content such as marker attributes -->
         <PackageReference Include="Kehlet.Generators.LoadAdditionalFiles"
                           Version="1.1.3"
                           PrivateAssets="all"

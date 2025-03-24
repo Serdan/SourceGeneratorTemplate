@@ -8,10 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Useful primitives for C# source generators. -->
     <PackageReference Include="Kehlet.SourceGenerator.Prelude"
-                      Version="1.2.0"
+                      Version="1.3.0"
                       PrivateAssets="all"
                       IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+    <!-- Source generator for language features that aren't supported by netstandard2.0 -->
     <PackageReference Include="Meziantou.Polyfill"
                       Version="1.0.42"
                       PrivateAssets="all"

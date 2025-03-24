@@ -1,0 +1,18 @@
+﻿<Solution>
+    <Configurations/>
+    <Folder Name="/Roslyn/">
+        <Project Path="src\Roslyn\Analyzer\Analyzer.csproj" Type="Classic C#"/>
+        <Project Path="src\Roslyn\CodeFixes\CodeFixes.csproj" Type="Classic C#"/>
+        <Project Path="src\Roslyn\Common\Common.csproj" Type="Classic C#"/>
+        <Project Path="src\Roslyn\Generator\Generator.csproj" Type="Classic C#"/>
+    </Folder>
+    <Folder Name="/Tests/">
+        <Project Path="src\Tests\Analyzer.Tests\Analyzer.Tests.csproj" Type="Classic C#"/>
+        <Project Path="src\Tests\Benchmarks\Benchmarks.csproj" Type="Classic C#"/>
+        <Project Path="src\Tests\Generator.Tests\Generator.Tests.csproj" Type="Classic C#"/>
+        <Project Path="src\Tests\Tests.Common\Tests.Common.csproj" Type="Classic C#"/>
+    </Folder>
+    <Project Path="src\Build\Build.csproj" Type="Classic C#"/>
+    <Project Path="src\Sample\Sample.csproj" Type="Classic C#"/>
+    <Project Path="src\StaticContent\StaticContent.csproj" Type="Classic C#"/>
+</Solution>
