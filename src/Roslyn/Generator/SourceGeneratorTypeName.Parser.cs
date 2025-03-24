@@ -33,11 +33,11 @@ public partial class SourceGeneratorTypeName
         }
     }
 
-    internal class NamespaceVisitor : SyntaxDescriptionWalker<Unit>
+    internal class NamespaceVisitor : SyntaxDescriptionWalker
     {
         public Option<string> Namespace = None;
 
-        public override Option<Unit> VisitNamespace(NamespaceDescription description)
+        public override Unit VisitNamespace(NamespaceDescription description)
         {
             if (description.IsFileScoped)
             {

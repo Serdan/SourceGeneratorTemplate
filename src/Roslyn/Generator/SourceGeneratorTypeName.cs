@@ -23,7 +23,8 @@ public partial class SourceGeneratorTypeName : IIncrementalGenerator
 
     internal static void GenerateCode(SourceProductionContext context, TargetTypeData data)
     {
-        var source = new Emitter(data).Visit(data.ModuleDescription).UnsafeValue.ToString();
-        context.AddSourceUTF8(data.FileName, source);
+        var emitter = new Emitter(data);
+        emitter.Visit(data.ModuleDescription);
+        context.AddSourceUTF8(data.FileName, emitter.ToString());
     }
 }

@@ -6,7 +6,7 @@ namespace Tests.Common;
 [LoadAdditionalFiles(RegexFilter = @"\.cs$", MemberNameSuffix = "Source", MemberKind = MemberKind.Property)]
 public static partial class SR
 {
-    private static readonly string embeddedAttribute =
+    private static readonly string EmbeddedAttribute =
         """
         namespace Microsoft.CodeAnalysis
         {
@@ -32,7 +32,7 @@ public static partial class SR
             public class MyTestClass;
         }
 
-        {{(includeGeneratorTypes ? embeddedAttribute : "")}}
+        {{(includeGeneratorTypes ? EmbeddedAttribute : "")}}
         """;
 
     public static string GetPartialClassWithAttribute(bool includeGeneratorTypes = false) =>
@@ -48,6 +48,6 @@ public static partial class SR
             public partial class MyTestClass;
         }
 
-        {{(includeGeneratorTypes ? embeddedAttribute : "")}}
+        {{(includeGeneratorTypes ? EmbeddedAttribute : "")}}
         """;
 }

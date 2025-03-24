@@ -4,16 +4,16 @@ public partial class SourceGeneratorTypeName
 {
     internal class Emitter(TargetTypeData typeData) : SyntaxDescriptionEmitter
     {
-        public override Option<IEmitter> VisitNamedTypeBody(NamedTypeDescription description)
+        public override Unit VisitNamedTypeBody(NamedTypeDescription description)
         {
             if (description.IsTargetNode is false)
             {
-                return Emitter.Some();
+                return unit;
             }
 
             Emitter.Comment(typeData.SomeData);
 
-            return Emitter.Some();
+            return unit;
         }
     }
 }
